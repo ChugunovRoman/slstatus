@@ -65,13 +65,13 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function   format    argument */
-	{run_command, "%s | ", "~/.local/bin/echo.sh", 1000 * 120},
+	{netspeed_rx, " %s/", "wlp0s20f3", NULL},
+	{netspeed_tx, " %s | ", "wlp0s20f3", NULL},
+	{run_command, " %s | ", "usd_rub.sh", 1000 * 120},
 	{battery_state, " %s", "BAT0", NULL},
 	{battery_perc, "%s%% ", "BAT0", NULL},
 	{battery_remaining, "%s | ", "BAT0", NULL},
 	{wifi_perc, " %s%% | ", "wlp0s20f3", NULL},
-	{netspeed_rx, " %s/", "wlp0s20f3", NULL},
-	{netspeed_tx, " %s | ", "wlp0s20f3", NULL},
 	{cpu_perc, " %s%%", NULL, NULL},
 	{cpu_freq, " %s | ", NULL, NULL},
 	// {temp, " %s/", "/sys/class/thermal/thermal_zone0/temp"},
