@@ -4,9 +4,18 @@
 
 #include "../util.h"
 
+unsigned long int wait = 0;
+char cached_buf[1024];
+
 const char *
-run_command(const char *cmd)
+run_command(const char *cmd, const unsigned int interval)
 {
+  wait += 1000;
+
+  if (strlen(cached_buf) > 0 && wait % interval != 0) {
+    return cached_buf;
+  }
+
 	char *p;
 	FILE *fp;
 
@@ -25,6 +34,8 @@ run_command(const char *cmd)
 	if ((p = strrchr(buf, '\n'))) {
 		p[0] = '\0';
 	}
+
+  strcpy(cached_buf, buf);
 
 	return buf[0] ? buf : NULL;
 }
