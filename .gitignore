@@ -1,0 +1,10 @@
+.vscode/ipch
+.vscode/vs*
+**/*.o
+**/*.bin
+**/*.swp
+**/*.save
+**/*.orig
+**/*.rej
+**/*.def*
+*~
