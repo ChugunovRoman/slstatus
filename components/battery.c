@@ -1,8 +1,23 @@
 /* See LICENSE file for copyright and license details. */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "../util.h"
+
+unsigned short isShowedOn20 = 0;
+unsigned short isShowedOn15 = 0;
+unsigned short isShowedOn10 = 0;
+
+void notify_need_charge()
+{
+	char command[100], msg[100];
+
+	strcpy(command, "notify-send ");
+	strcpy(msg, "\"Charge battery!!!\"");
+	strcat(command, msg);
+	system(command);
+}
 
 #if defined(__linux__)
 	#include <limits.h>
@@ -32,12 +47,33 @@
 		int perc;
 		char path[PATH_MAX];
 
-		if (esnprintf(path, sizeof(path),
-		              "/sys/class/power_supply/%s/capacity", bat) < 0) {
+		if (esnprintf(path, sizeof(path), "/sys/class/power_supply/%s/capacity", bat) < 0)
 			return NULL;
+
+		if (pscanf(path, "%d", &perc) != 1)
+			return NULL;
+
+		if (!isShowedOn20 && perc <= 20)
+		{
+			notify_need_charge();
+			isShowedOn20 = 1;
 		}
-		if (pscanf(path, "%d", &perc) != 1) {
-			return NULL;
+		if (!isShowedOn15 && perc <= 15)
+		{
+			notify_need_charge();
+			isShowedOn15 = 1;
+		}
+		if (!isShowedOn10 && perc <= 10)
+		{
+			notify_need_charge();
+			isShowedOn10 = 1;
+		}
+
+		if (perc > 20 && (isShowedOn20 || isShowedOn15 || isShowedOn10))
+		{
+			isShowedOn20 = 0;
+			isShowedOn15 = 0;
+			isShowedOn10 = 0;
 		}
 
 		return bprintf("%d", perc);
