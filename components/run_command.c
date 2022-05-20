@@ -37,5 +37,7 @@ run_command(const char *cmd, const unsigned int interval)
 
   strcpy(cached_buf, buf);
 
+  wait = 0;
+
 	return buf[0] ? buf : NULL;
 }
