@@ -11,5 +11,13 @@
         "cwd": "${workspaceFolder}"
       }
     },
+    {
+      "label": "install",
+      "type": "shell",
+      "command": "sudo make install",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
   ]
 }
