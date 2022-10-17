@@ -81,6 +81,7 @@ static const struct arg args[] = {
 	{ram_used, " %s/", "", NULL},
 	{ram_free, "%s | ", "", NULL},
 	{datetime, " %s", "%d %H:%M:%S", NULL},
+	{datetimez, "/%s", "%H:%M:%S", 5, NULL},
 	// {datetime, " %s", "%d %A %H:%M:%S"},
 
 	// {datetime, "%s", "%d %A %B %Y %H:%M:%S"},

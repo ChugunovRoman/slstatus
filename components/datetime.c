@@ -17,3 +17,22 @@ datetime(const char *fmt)
 
 	return buf;
 }
+
+datetimez(const char *fmt, const int zone)
+{
+	time_t t, t2;
+  struct tm *tm;
+
+	t = time(NULL);
+
+  tm = gmtime(&t);
+  tm->tm_hour = tm->tm_hour + zone;
+  t2 = mktime(tm);
+
+	if (!strftime(buf, sizeof(buf), fmt, tm)) {
+		warn("strftime: Result string exceeds buffer size");
+		return NULL;
+	}
+
+	return buf;
+}
