@@ -70,7 +70,8 @@ static const struct arg args[] = {
 	{run_command, " %s | ", "usd_rub.sh", 1000 * 120},
 	{battery_state, " %s", "BAT0", NULL},
 	{battery_perc, "%s%% ", "BAT0", NULL},
-	{battery_remaining, "%s | ", "BAT0", NULL},
+	{battery_remaining, "%s ", "BAT0", NULL},
+	{run_command, " %s | ", "bluetooth_bat.sh", 1000},
 	{wifi_perc, " %s%% | ", "wlp0s20f3", NULL},
 	{cpu_perc, " %s%%", NULL, NULL},
 	{cpu_freq, " %s | ", NULL, NULL},
@@ -81,7 +82,7 @@ static const struct arg args[] = {
 	{ram_used, " %s/", "", NULL},
 	{ram_free, "%s | ", "", NULL},
 	{datetime, " %s", "%d %H:%M:%S", NULL},
-	{datetimez, "/%s", "%H:%M:%S", 5, NULL},
+	// {datetimez, "/%s", "%H:%M:%S", 5, NULL},
 	// {datetime, " %s", "%d %A %H:%M:%S"},
 
 	// {datetime, "%s", "%d %A %B %Y %H:%M:%S"},

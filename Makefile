@@ -64,6 +64,8 @@ install: all
 	chmod 644 "$(DESTDIR)$(MANPREFIX)/man1/slstatus.1"
 	cp -f "scripts/usd_rub.sh" "$(DESTDIR)$(PREFIX)/bin"
 	chmod +x "$(DESTDIR)$(PREFIX)/bin/usd_rub.sh"
+	cp -f "scripts/bluetooth_bat.sh" "$(DESTDIR)$(PREFIX)/bin"
+	chmod +x "$(DESTDIR)$(PREFIX)/bin/bluetooth_bat.sh"
 
 uninstall:
 	rm -f "$(DESTDIR)$(PREFIX)/bin/slstatus"
