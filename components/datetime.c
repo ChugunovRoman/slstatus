@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
+#include "../slstatus.h"
 #include "../util.h"
 
 const char *
@@ -18,6 +19,7 @@ datetime(const char *fmt)
 	return buf;
 }
 
+const char *
 datetimez(const char *fmt, const int zone)
 {
 	time_t t, t2;
