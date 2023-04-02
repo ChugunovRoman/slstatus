@@ -97,8 +97,8 @@ void notify_need_charge()
 		} map[] = {
 			{ "Charging",    "+" },
 			{ "Discharging", "-" },
-			{ "Full",        "o" },
-			{ "Not charging", "o" },
+			{ "Full",        "" },
+			{ "Not charging", "-" },
 		};
 		size_t i;
 		char path[PATH_MAX], state[12];
