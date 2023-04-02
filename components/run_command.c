@@ -11,6 +11,8 @@ char cached_buf[1024];
 const char *
 run_command(const char *cmd, const unsigned int interval)
 {
+	cached_buf[0] = '\0';
+
   wait += 1000;
 
   if (strlen(cached_buf) > 0 && wait % interval != 0) {
